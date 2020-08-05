@@ -14,18 +14,20 @@ to set the `divisor` member variable.
 
 Questions:
 1) What did you learn from this exercise?
+    กำหนดให้ผู้ใช้ไม่สามารถเช็ทค่าได้ตรงๆกับค่าที่ยืดหยุ่น
+    เรื่องการ encapsulation
 */
 class SafeDivisor {
-    divisor: number = 1;
+    private divisor: number = 1;
 
     setDivisor(value: number) {
         if (value == 0) {
             throw new Error("Value should not be 0");
         }
-        this.divisor = value; 
+        this.divisor = value;
     }
 
-    divide(x: number): number { 
+    divide(x: number): number {
         return x / this.divisor;
     }
 }
@@ -33,6 +35,9 @@ class SafeDivisor {
 function exploit(): number {
     let sd = new SafeDivisor();
 
-    sd.divisor = 0;
-    return sd.divide(42); 
+    // sd.divisor = 0;
+    sd.setDivisor(0);
+    return sd.divide(42);
 }
+
+console.log('object :>> ', exploit());
