@@ -12,3 +12,13 @@ Questions:
 1) How to ensure that the input is a string at compile time?
 2) What did you learn from this exercise?
 */
+
+function scriptAt(word: string): number {
+    return word.indexOf('Script');
+}
+
+console.log('scriptAt :>> ', scriptAt('type Script'));
+/*
+1) assign type string when create function
+2) Learning of use type in type Script
+*/
